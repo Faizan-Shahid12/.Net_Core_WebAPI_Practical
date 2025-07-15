@@ -22,7 +22,7 @@ namespace WebApi_Practice
 
 
             builder.Services.AddSingleton<DB>();
-            builder.Services.AddScoped<IBookService, BookService>();
+            builder.Services.AddSingleton<IBookService, BookService>();
             builder.Services.AddScoped<IBookService1,BookService1>();
 
             builder.Services.AddAutoMapper(typeof(Program));

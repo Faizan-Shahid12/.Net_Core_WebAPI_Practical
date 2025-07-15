@@ -24,12 +24,34 @@ namespace WebApi_Practice.Models
             command.ExecuteNonQuery();
         }
 
+        public void AddBookUsingProcedure(Book book)
+        {
+            var connection =new SqlConnection(_connectionString);
+            connection.Open();
+
+            var command = new SqlCommand("Exec AddNewBook @Title=@Title1, @Author=@Auth, @Description=@Desc", connection);
+            command.Parameters.AddWithValue("@Title1", book.Title);
+            command.Parameters.AddWithValue("@Auth", book.Author);
+            command.Parameters.AddWithValue("@Desc", book.Description);
+            command.ExecuteNonQuery();
+
+        }
+
         public void DeleteBook(int id)
         {
             var connection = new SqlConnection(_connectionString);
             connection.Open();
 
             var command = new SqlCommand("Delete From Books Where Id = @id", connection);
+            command.Parameters.AddWithValue("@id",id);
+            command.ExecuteNonQuery();
+        }
+        public void DeleteBookUsingProcedure(int id)
+        {
+            var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            var command = new SqlCommand("Exec DeleteBook @Id = @id", connection);
             command.Parameters.AddWithValue("@id",id);
             command.ExecuteNonQuery();
         }
@@ -51,6 +73,24 @@ namespace WebApi_Practice.Models
 
             return book;
 
+        }
+
+        public List<Book> GetBooksUsingProcedure()
+        {
+            var connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            var command = new SqlCommand("Exec GetAllBooks", connection);
+            var reader = command.ExecuteReader();
+            List<Book> book = new();
+
+            while (reader.Read())
+            {
+                Book nbook = new Book(reader.GetInt32(0), reader.GetString(1), reader.GetString(3), reader.GetString(2));
+                book.Add(nbook);
+            }
+
+            return book;
         }
 
     }

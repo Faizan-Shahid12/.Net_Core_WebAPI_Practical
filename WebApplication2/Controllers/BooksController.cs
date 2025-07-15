@@ -27,6 +27,13 @@ namespace WebApi_Practice.Controllers
             return Ok(book.GetAll());
         }
 
+        [HttpGet("BooksPro")]
+        public IActionResult GetAllBooksUsingProcedure()
+        {
+            return Ok(book.GetAllUsingProcedure());
+        }
+
+
         [HttpPost]
         public void AddNewBook(int id,string Title,string Description,string author)
         {
@@ -37,6 +44,14 @@ namespace WebApi_Practice.Controllers
         public void AddNewBookUsingDTO(int id, [FromBody] BookDTO book1)
         {
             book.Add(id, book1.Title, book1.Description, book1.Author);
+        }
+
+        [HttpPost]
+        public void AddNewBookUsingProcedure(int id, [FromBody] BookDTO book1)
+        {
+            Book book2 = map.Map<Book>(book1);
+            book2.Id = id;
+            book.AddBookUsingProcedure(book2);
         }
 
         [HttpPost]
@@ -54,6 +69,13 @@ namespace WebApi_Practice.Controllers
         {
             book.Remove(id);
         }
+
+        [HttpDelete("UsingPro")]
+        public void DeleteBook_(int id)
+        {
+            book.RemoveUsingProcedure(id);
+        }
+
 
         [HttpGet]
         public IActionResult GetBookById(int id)

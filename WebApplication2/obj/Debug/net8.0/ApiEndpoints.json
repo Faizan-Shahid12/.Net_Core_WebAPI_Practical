@@ -178,8 +178,57 @@
   },
   {
     "ContainingType": "WebApi_Practice.Controllers.BooksController",
+    "Method": "AddNewBookUsingProcedure",
+    "RelativePath": "api/Books/AddNewBookUsingProcedure",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "book1",
+        "Type": "WebApi_Practice.DTO.BookDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi_Practice.Controllers.BooksController",
     "Method": "DeleteBook",
     "RelativePath": "api/Books/DeleteBook",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApi_Practice.Controllers.BooksController",
+    "Method": "DeleteBook_",
+    "RelativePath": "api/Books/DeleteBook_/UsingPro",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -208,6 +257,16 @@
     "Parameters": [],
     "ReturnTypes": [],
     "EndpointName": "GetAllBooks"
+  },
+  {
+    "ContainingType": "WebApi_Practice.Controllers.BooksController",
+    "Method": "GetAllBooksUsingProcedure",
+    "RelativePath": "api/Books/GetAllBooksUsingProcedure/BooksPro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "WebApi_Practice.Controllers.BooksController",

@@ -263,3 +263,4 @@ C:\Users\Administrator\source\repos\WebApplication2\WebApplication2\obj\Debug\ne
 C:\Users\Administrator\source\repos\WebApplication2\WebApplication2\obj\Debug\net8.0\ref\WebApi_Practice.dll
 C:\Users\Administrator\source\repos\WebApplication2\WebApplication2\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\Administrator\source\repos\WebApplication2\WebApplication2\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Administrator\source\repos\WebApplication2\WebApplication2\obj\Debug\net8.0\WebApi_Practice.sourcelink.json

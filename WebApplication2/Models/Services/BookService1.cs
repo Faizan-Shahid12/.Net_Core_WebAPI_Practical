@@ -26,6 +26,13 @@ namespace WebApi_Practice.Models.Services
         public void Add(Book book)
         {
             Books.Add(book);
+            dB.AddBook(book);
+        }
+
+        public void AddBookUsingProcedure(Book book)
+        {
+            Books.Add(book);
+            dB.AddBookUsingProcedure(book);
         }
 
         public List<BookDTO> GetAll()
@@ -34,6 +41,16 @@ namespace WebApi_Practice.Models.Services
 
             return books;
         }
+
+        public List<BookDTO> GetAllUsingProcedure()
+        {
+
+            List<Book> Books1 = dB.GetBooksUsingProcedure();
+            List<BookDTO> books = Books1.Select(book => new BookDTO(book)).ToList();
+
+            return books;
+        }
+
 
         public void Remove(int id)
         {
@@ -46,6 +63,19 @@ namespace WebApi_Practice.Models.Services
             }
 
             dB.DeleteBook(id);
+        }
+
+        public void RemoveUsingProcedure(int id)
+        {
+            foreach (Book books in Books.ToList())
+            {
+                if (books.Id == id)
+                {
+                    Books.Remove(books);
+                }
+            }
+
+            dB.DeleteBookUsingProcedure(id);
         }
 
         public BookDTO? GetBookById(int id)
